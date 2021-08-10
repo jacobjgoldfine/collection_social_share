@@ -17,6 +17,9 @@ Item.init(
         },
         item_description: {
             type: DataTypes.STRING,
+        },
+        item_image: {
+            type: DataTypes.STRING,
         }
     },
     {
