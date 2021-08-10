@@ -1,0 +1,31 @@
+{
+  "name": "collection_social_share",
+  "version": "1.0.0",
+  "description": "Share your collections with others!  Compare, trade and share.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobjgoldfine/collection_social_share.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobjgoldfine/collection_social_share/issues"
+  },
+  "homepage": "https://github.com/jacobjgoldfine/collection_social_share#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}
