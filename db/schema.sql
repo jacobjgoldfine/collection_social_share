@@ -1,0 +1,11 @@
+DROP DATABASE IF EXISTS forumUser_db;
+
+CREATE DATABASE forumUser_db;
+
+DROP DATABASE IF EXISTS collection_db;
+
+CREATE DATABASE collection_db;
+
+DROP DATABASE IF EXISTS item_db;
+
+CREATE DATABASE item_db;
