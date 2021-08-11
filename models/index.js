@@ -5,6 +5,7 @@ const { Model } = require("sequelize/types");
 
 User.hasMany(Collection, {
     foreignKey: 'user_id',
+    onDelete: 'CASCADE',
 });
 
 Collection.belongsTo(User, {
@@ -13,10 +14,11 @@ Collection.belongsTo(User, {
 
 Collection.hasMany(Item, {
     foreignKey: 'collection_id',
+    onDelete: 'CASCADE',
 });
 
 Item.belongsTo(Collection, {
     foreignKey: 'collection_id',
 });
 
-module.exports = { User, Collection, Item }
+module.exports = { User, Collection, Item };
