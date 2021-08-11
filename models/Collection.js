@@ -11,12 +11,19 @@ Collection.init(
             primaryKey: true,
             autoIncrement: true,
           },
-          col_name: {
+        col_name: {
             type: DataTypes.STRING,
             allowNull: false,
           },
         col_description: {
             type: DataTypes.STRING,
+        },
+        user_id: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'user',
+            key: 'id',
+          },
         },
     },
     {
