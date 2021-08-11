@@ -20,7 +20,14 @@ Item.init(
         },
         item_image: {
             type: DataTypes.STRING,
-        }
+        },
+        collection_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'collection',
+                key: 'id',
+            },
+        },
     },
     {
     sequelize,
