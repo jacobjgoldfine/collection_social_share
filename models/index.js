@@ -19,4 +19,4 @@ Item.belongsTo(Collection, {
     foreignKey: 'collection_id',
 });
 
-module.exports = { User, Collection, Item }
+module.exports = { User, Collection, Item };
