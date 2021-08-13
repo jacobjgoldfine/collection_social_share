@@ -1,0 +1,18 @@
+[
+    {
+        "item_name": "Test Item",
+        "item_description": "Definatly an item to test the database.",
+        "item_image": "https://image.shutterstock.com/z/stock-vector-default-ui-image-placeholder-for-wireframes-for-apps-and-websites-1037719192.jpg"
+    },
+    {
+        "item_name": "A rock for sure",
+        "item_description": "a really need rock I found near by.",
+        "item_image": "http://via.placeholder.com/640x360"
+    },
+    {
+        "item_name": "A neat card",
+        "item_description": "A very neat card I got.",
+        "item_image": "https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg"
+    }
+  ]
+  
