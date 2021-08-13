@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Collection } = require("../../models/Collection");
+const { Collection } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {

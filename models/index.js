@@ -1,7 +1,6 @@
 const User = require("./User");
 const Collection = require("./Collection");
 const Item = require("./Item");
-const { Model } = require("sequelize/types");
 
 User.hasMany(Collection, {
     foreignKey: 'user_id',
