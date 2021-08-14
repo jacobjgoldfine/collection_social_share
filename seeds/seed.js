@@ -19,11 +19,15 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+  
+  const colData = await Collection.findAll({});
+
+  const collect = colData.map((col) => col.get({ plain: true }));
 
   for (const item of itemData) {
     await Item.create({
       ...item,
-      user_id: collection[Math.floor(Math.random() * collection.length)].id,
+      collection_id: collect[Math.floor(Math.random() * collect.length)].id,
     });
   }
 
