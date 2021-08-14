@@ -26,4 +26,3 @@ let pictureData = {}
       alert('Failed to create item');
     }
   }
-};
