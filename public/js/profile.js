@@ -25,4 +25,8 @@ let pictureData = {}
     } else {
       alert('Failed to create item');
     }
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> f98955bac9e1762359ccd977cae48c5e0aa76847
