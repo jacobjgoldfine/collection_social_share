@@ -1,13 +1,12 @@
 const router = require('express').Router();
-const { Collection, Item, User } = require('../models');
-const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+
+router.get('/homepage', async (req, res) => {
   res.render('homepage');
 });
 
 router.get('/collection', async (req, res) => {
-  res.render('Collection');
+  res.render('collection');
 });
 
 router.get('/profile', async (req, res) => {
@@ -15,10 +14,10 @@ router.get('/profile', async (req, res) => {
 });
 
 router.get('/login', async (req, res) => {
-res.render('profile');
+res.render('login');
 })
 
-router.get('/', async (req, res) => {
+/*router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const collectionData = await Collection.findAll({
@@ -115,7 +114,7 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
-});
+});*/
 
 
 
