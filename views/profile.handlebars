@@ -1,8 +1,7 @@
-{{!-- <button type="button" class="btn btn-dark">Profile</button> --}}
-{{!-- <div class="text-center"> --}}
+{{! <button type="button" class="btn btn-dark">Profile</button> }}
+{{! <div class="text-center"> }}
 
-
-    {{!-- <div class="card text-center">
+{{! <div class="card text-center">
         <div class="card-header">
           Syed's Profile
         </div>
@@ -12,21 +11,20 @@
           <a href="#" class="btn btn-primary">Contact Me</a>
         </div>
         
-      </div> --}}
-
+      </div> }}
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Collection:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-collection-form">
       <div class="form-group">
-        <label for="project-name">Collection name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="col-name">Collection name:</label>
+        <input class="form-input" type="text" id="col-name" name="col-name" />
       </div>
       <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="col-desc">description:</label>
+        <textarea class="form-input" id="col-desc" name="col-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -34,46 +32,73 @@
     </form>
   </div>
 
+  {{#if collection.length}}
+    <div class="col-md-6 collection-list">
+      <h3>Current Collections:</h3>
 
-{{#each collection as |collection|}}
-<h1>{{collection.col_name}}</h1>
-<p>{{collection.col_description}}</p>
-<button>Edit collection name</button>
-<button>Edit collection description</button>
-<button>Delete collection</button>
-<form id="new_item">
-  <div id=wiget></div>
-  <button>New Item</button>
-</form>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Item Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Picture</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each item as |item|}}
-    <tr>
-      <td>{{item.item_name}}</td>
-      <td>{{item.item_description}}.</td>
-      <img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}">
-      <button>Edit</button>
-      <button>Delete</button>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-{{/each}}
-    {{!-- <img src="..." class="rounded" alt="...">
+      {{#each collection as |collection|}}
+        <div class="row mb-2">
+          <div class="col-md-8">
+            <h4><a href="/collection/{{collection.id}}">{{collection.col_name}}</a></h4>
+            <p>{{collection.col_description}}</p>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-danger" data-id="{{collection.id}}">DELETE</button>
+          </div>
+        </div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Picture</th>
+                <th scope="col">Delete Item</th>
+              </tr>
+            </thead>
+            <tbody class="item-list">
+              {{#each item as |item|}}
+                <tr>
+                  <td>{{item.item_name}}</td>
+                  <td>{{item.item_description}}.</td>
+                  <td><img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
+                  {{! <button>Edit</button> }}
+                  <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <h3>Create a New Item:</h3>
+
+          <form class="form new-item-form">
+            <div class="form-group">
+              <label for="item-name">Item name:</label>
+              <input class="form-input" type="text" id="item-name" name="item-name" />
+            </div>
+            <div class="form-group">
+              <label for="item-desc">description:</label>
+              <textarea class="form-input" id="item-desc" name="item-desc"></textarea>
+            </div>
+            <div id="wiget"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add Item</button>
+            </div>
+          </form>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+{{! <img src="..." class="rounded" alt="...">
   </div>
   <div class="text-center">
     <img src="..." class="rounded" alt="...">
   </div>
   <div class="text-center">
     <img src="..." class="rounded" alt="...">
-  </div> --}}
+  </div> }}
 
-  <script src="./js/profile.js"></script>
-  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script src="./js/profile.js"></script>
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
