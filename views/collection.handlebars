@@ -7,13 +7,12 @@
     </tr>
   </thead>
   <tbody>
-    {{#each item as |item|}}
-    <tr>
-      <td>{{item.item_name}}</td>
-      <td>{{item.item_description}}.</td>
-      <img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}">
-    </tr>
-    {{#each}}
+    {{#each items as |item|}}
+      <tr>
+        <td><a href="/item/{{item.id}}">{{item.item_name}}</a></td>
+        <td>{{item.item_description}}.</td>
+        <td> <img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
-

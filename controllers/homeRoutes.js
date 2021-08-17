@@ -2,25 +2,7 @@ const router = require("express").Router();
 const { Collection, Item, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-// router.get("/homepage", async (req, res) => {
-//   res.render("homepage");
-// });
-
-// router.get("/collection", async (req, res) => {
-//   res.render("collection");
-// });
-
-// router.get("/profile", async (req, res) => {
-//   res.render("profile");
-// });
-
-// router.get("/login", async (req, res) => {
-//   res.render("login");
-// });
-
-
 router.get("/", async (req, res) => {
-
   try {
     // Get all projects and JOIN with user data
     const collectionData = await Collection.findAll({
@@ -50,8 +32,7 @@ router.get("/collection/:id", async (req, res) => {
     const collectionData = await Collection.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ["username"],
+          model: Item,
         },
       ],
     });
@@ -69,14 +50,7 @@ router.get("/collection/:id", async (req, res) => {
 
 router.get("/item/:id", async (req, res) => {
   try {
-    const itemData = await Item.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["username"],
-        },
-      ],
-    });
+    const itemData = await Item.findByPk(req.params.id, {});
 
     const item = itemData.get({ plain: true });
 
@@ -89,14 +63,13 @@ router.get("/item/:id", async (req, res) => {
   }
 });
 
-
 // Use withAuth middleware to prevent access to route
 router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Collection, model: Item, model: User }],
+      include: [{ model: Collection, Item, User }],
     });
 
     const user = userData.get({ plain: true });
