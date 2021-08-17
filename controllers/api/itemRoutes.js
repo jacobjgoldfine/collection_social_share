@@ -1,16 +1,60 @@
 const router = require('express').Router();
-const { Item } = require('../../models');
+const { Item, User } = require('../../models');
+
+
 
 router.post("/", async (req, res) => {
     try {
       const newItem = await Item.create({
-        ...req.body,
+       // ...req.body,
+        item_name: req.body.item_name,
         user_id: req.session.user_id,
       });
   
       res.status(200).json(newItem);
     } catch (err) {
       res.status(400).json(err);
+    }
+  });
+
+  router.put('/:id', (req, res) => {
+    // update a category by its `id` value
+    Item.update({item_name: req.body.item_name},
+      {
+        where: {id: req.params.id}
+      })
+      .then(itemData => {
+        if (!itemData) {
+          res.status(404).json({ message: 'No Category found with that ID.' });
+          return;
+        }
+        res.json(itemData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+  router.get('/item/:id', async (req, res) => {
+    try {
+      const itemData = await Item.findByPk(req.params.id, {
+        include: [
+          {
+            model: User, Item,
+            attributes: ['user_id', 'item_id'],
+          },
+        ],
+      });
+  
+      const item = itemData.get({ plain: true });
+  
+      res.render('item', {
+        ...item,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
     }
   });
 
