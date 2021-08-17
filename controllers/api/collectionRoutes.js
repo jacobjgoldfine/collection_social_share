@@ -6,7 +6,6 @@ router.get('/', (req, res) => {
   Collection.findAll().then((collectionData) => {
     res.json(collectionData);
   });
-    
 });
 
 router.post('/', (req, res) => {

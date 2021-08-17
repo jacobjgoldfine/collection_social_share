@@ -1,14 +1,16 @@
 const router = require('express').Router();
 const { Item, User } = require('../../models');
 
+router.get('/', (req, res) => {
+  Item.findAll().then((itemData) => {
+    res.json(itemData);
+  });
+});
 
-
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       const newItem = await Item.create({
-       // ...req.body,
-        item_name: req.body.item_name,
-        user_id: req.session.user_id,
+        ...req.body,
       });
   
       res.status(200).json(newItem);
@@ -19,7 +21,10 @@ router.post("/", async (req, res) => {
 
   router.put('/:id', (req, res) => {
     // update a category by its `id` value
-    Item.update({item_name: req.body.item_name},
+    Item.update(
+      {item_name: req.body.item_name,
+      item_description: req.body.item_description,
+      item_image: req.body.item_image},
       {
         where: {id: req.params.id}
       })
@@ -36,7 +41,7 @@ router.post("/", async (req, res) => {
       });
   });
 
-  router.get('/item/:id', async (req, res) => {
+  router.get('/:id', async (req, res) => {
     try {
       const itemData = await Item.findByPk(req.params.id, {
         include: [
@@ -65,7 +70,6 @@ router.delete("/:id", async (req, res) => {
         const itemData = await Item.destroy({
         where: {
             id: req.params.id,
-            user_id: req.session.user_id,
         },
     });
   
