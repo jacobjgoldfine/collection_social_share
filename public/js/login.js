@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
 
-    const response = await fetch('/api/users/login', {
+    const response = await fetch('/api/user/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -15,9 +15,10 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
 
-      document.location.replace('/');
+      document.location.replace('/profile');
     } else {
-      alert('Incorrect email or password. Please try again!');
+      alert('Incorrect email or passworddddd. Please try again!')
+      console.log(response);
     }
   }
 };
@@ -30,17 +31,18 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#passwordSignup').value.trim();
 
   if (username && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/user', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/profile');
     } else {
       console.log(response);
       alert('Must be a real email or password must be 6 characters long!');
+      
     }
   }
 };
