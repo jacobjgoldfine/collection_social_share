@@ -18,7 +18,9 @@ const withAuth = require("../utils/auth");
 //   res.render("login");
 // });
 
+
 router.get("/", async (req, res) => {
+
   try {
     // Get all projects and JOIN with user data
     const collectionData = await Collection.findAll({
@@ -86,6 +88,7 @@ router.get("/item/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 // Use withAuth middleware to prevent access to route
 router.get("/profile", withAuth, async (req, res) => {
