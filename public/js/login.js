@@ -2,12 +2,12 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
 
-  const email = document.getElementById('userEmail').value.trim();
-  const password = document.getElementById('userPassword').value.trim();
+  const email = document.querySelector('#userEmail').value.trim();
+  const password = document.querySelector('#userPassword').value.trim();
 
   if (email && password) {
 
-    const response = await fetch('/api/users/login', {
+    const response = await fetch('/api/user/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -17,8 +17,8 @@ const loginFormHandler = async (event) => {
 
       document.location.replace('/profile');
     } else {
-      alert('Incorrect email or password. Please try again!')
-      .then(document.location.reload);
+      alert('Incorrect email or passworddddd. Please try again!')
+      console.log(response);
     }
   }
 };
@@ -31,7 +31,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#passwordSignup').value.trim();
 
   if (username && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/user', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
