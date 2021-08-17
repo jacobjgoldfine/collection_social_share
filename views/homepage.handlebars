@@ -1,15 +1,13 @@
-
-{{#each collection as |collection|}}
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{collection.col_name}}</h5>
-        <p class="card-text">{{collection.col_description}}</p>
-        <a href="/collection/{{collection.id}}" class="btn btn-primary">Click Here</a>
+{{#each collections as |collection|}}
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{collection.col_name}}</h5>
+          <p class="card-text">{{collection.col_description}}</p>
+          <a href="/collection/{{collection.id}}" class="btn btn-primary">Click Here</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 {{/each}}
-
