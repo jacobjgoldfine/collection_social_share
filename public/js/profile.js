@@ -1,23 +1,22 @@
-require("dotenv").config();
+let pictureData = {};
+
+cloudinary.applyUploadWidget(
+  document.getElementById("wiget"),
+  { cloudName: "jgold", uploadPreset: "wbzmtfqf", sources: "local" },
+  (error, result) => {
+    if (result.event === "success") {
+      pictureData = result.info;
+    }
+  }
+);
 
 const newItemHandler = async (event) => {
   event.preventDefault();
 
   const item_name = document.querySelector("#item-name").value.trim();
   const item_description = document.querySelector("#item-desc").value.trim();
-  let pictureData = {};
 
-  cloudinary.applyUploadWidget(
-    document.getElementById("wiget"),
-    { cloudName: process.env.CD_NAME, uploadPreset: process.env.CD_PRESET },
-    (error, result) => {
-      if (result.event === "success") {
-        pictureData = result.info;
-      }
-    }
-  );
-
-  if (item_name && item_description && pictureData) {
+  if (item_name && item_description) {
     const response = await fetch(`/api/item`, {
       method: "POST",
       body: JSON.stringify({ item_name, item_description, item_image: pictureData.secure_url }),
