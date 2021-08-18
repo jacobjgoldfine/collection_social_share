@@ -24,10 +24,6 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-h1 {
-  text-align: center;
-}
-
 /* Set a style for all buttons */
 button {
   background-color: #04aa6d;
