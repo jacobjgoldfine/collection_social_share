@@ -30,15 +30,12 @@ const newItemHandler = async (event) => {
     } else {
       alert("Failed to create item");
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   }
-=======
+
   };
->>>>>>> f98955bac9e1762359ccd977cae48c5e0aa76847
-=======
-  }
-};
+
+
 
 const delItemButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
@@ -102,4 +99,4 @@ document.querySelector(".collection-list").addEventListener("click", delButtonHa
 document.querySelector(".new-item-form").addEventListener("submit", newItemHandler);
 
 document.querySelector(".item-list").addEventListener("click", delItemButtonHandler);
->>>>>>> 9f9b9d96bed7a5d39e21cdf5f764a699320346b7
+
