@@ -14,11 +14,10 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-
       document.location.replace('/profile');
     } else {
       alert('Incorrect email or password. Please try again!')
-      console.log(response);
+      console.log(response.body);
     }
   }
 };
