@@ -12,6 +12,11 @@ module.exports = {
     let str = url
     let splitString = str.split("upload");
     return splitString[0] + "upload/c_thumb,w_200,g_face" + splitString[1];
+  },
+  split_urlBig: (url) => {
+    let str = url
+    let splitString = str.split("upload");
+    return splitString[0] + "upload/c_thumb,w_800,g_face" + splitString[1];
   }
 };
 
