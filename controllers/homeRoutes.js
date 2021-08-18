@@ -19,7 +19,7 @@ const withAuth = require("../utils/auth");
 // });
 
 
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
 
   try {
     // Get all projects and JOIN with user data
@@ -116,7 +116,6 @@ router.get("/login", (req, res) => {
     res.redirect("/profile");
     return;
   }
-
   res.render("login");
 });
 
