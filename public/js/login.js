@@ -14,11 +14,10 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-
       document.location.replace('/profile');
     } else {
-      alert('Incorrect email or passworddddd. Please try again!')
-      console.log(response);
+      alert('Incorrect email or password. Please try again!')
+      console.log(response.body);
     }
   }
 };
@@ -41,7 +40,7 @@ const signupFormHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       console.log(response);
-      alert('Must be a real email or password must be 6 characters long!');
+      alert('Must be a real email or password must be 6+ characters long!');
       
     }
   }

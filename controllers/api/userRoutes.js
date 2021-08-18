@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-
 // Prevent non logged in users from viewing the homepage
 /*router.post('/', async (req, res) => {
     try {
@@ -8,7 +7,7 @@ const { User } = require("../../models");
   
       req.session.save(() => {
         req.session.user_id = userData.id;
-        req.session.logged_in = true;
+        req.session.loggedIn = true;
   
         res.status(200).json(userData);
       });
@@ -43,12 +42,12 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-
+ 
     if (!dbUserData) {
       res.status(404).json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-
+    
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {

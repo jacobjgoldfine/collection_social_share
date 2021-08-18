@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
 //   });
 // });
 
+
 // router.post('/', async (req, res) => {
 //     try {
 //       const newItem = await Item.create({
@@ -85,6 +86,7 @@ router.post("/", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
 
 router.delete("/:id", async (req, res) => {
   try {
