@@ -8,7 +8,7 @@ const { User } = require("../../models");
   
       req.session.save(() => {
         req.session.user_id = userData.id;
-        req.session.logged_in = true;
+        req.session.loggedIn = true;
   
         res.status(200).json(userData);
       });
