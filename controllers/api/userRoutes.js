@@ -15,8 +15,8 @@ const { User } = require("../../models");
       res.status(400).json(err);
     }
   });*/
-  // CREATE new user
-router.post('/', async (req, res) => {
+// CREATE new user
+router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
+      req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
       res.status(200).json(dbUserData);
@@ -42,12 +43,12 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
- 
+
     if (!dbUserData) {
       res.status(404).json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-    
+
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -56,6 +57,7 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
       res.status(200).json({ user: dbUserData, message: "You are now logged in!" });
