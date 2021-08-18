@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { Collection, Item, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-
 router.get("/", async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -70,7 +69,7 @@ router.get("/profile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Collection, Item, User }],
+      include: [{ model: Collection, Item }],
     });
 
     const user = userData.get({ plain: true });
