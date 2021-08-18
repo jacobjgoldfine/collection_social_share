@@ -30,8 +30,12 @@ const newItemHandler = async (event) => {
     } else {
       alert("Failed to create item");
     }
+
   }
-};
+
+  };
+
+
 
 const delItemButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
@@ -95,3 +99,4 @@ document.querySelector(".collection-list").addEventListener("click", delButtonHa
 document.querySelector(".new-item-form").addEventListener("submit", newItemHandler);
 
 document.querySelector(".item-list").addEventListener("click", delItemButtonHandler);
+
