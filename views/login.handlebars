@@ -1,57 +1,38 @@
-
-
-<form style="border:1px solid #ccc">
+<form style="border:1px solid #ccc" class="login-form">
   <h1>Log in</h1>
   <div class="container">
-    
+
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="userEmail"><b>Email</b></label>
+    <input type="text" placeholder="Enter Username" name="userEmail" id="userEmail" required />
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="userPassword"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="userPassword" id="userPassword" required />
 
     <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    
-  </div>
 </form>
 
-
-
-<form style="border:1px solid #ccc">
+<form style="border:1px solid #ccc" class="signup-form">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
-    <hr>
+    <hr />
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <label for="userName"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="userName" id="userName" required />
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="emailSignup"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="emailSignup" id="emailSignup" required />
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
-
-    
+    <label for="passwordSignup"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="passwordSignup" id="passwordSignup" required />
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
     </div>
   </div>
 </form>
-
