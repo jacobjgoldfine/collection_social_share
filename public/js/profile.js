@@ -15,11 +15,13 @@ const newItemHandler = async (event) => {
 
   const item_name = document.querySelector("#item-name").value.trim();
   const item_description = document.querySelector("#item-desc").value.trim();
+  const collection_id = document.querySelector("#col-id").value;
+  console.log(collection_id);
 
   if (item_name && item_description) {
     const response = await fetch(`/api/item`, {
       method: "POST",
-      body: JSON.stringify({ item_name, item_description, item_image: pictureData.secure_url }),
+      body: JSON.stringify({ item_name, item_description, collection_id, item_image: pictureData.secure_url }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -30,12 +32,8 @@ const newItemHandler = async (event) => {
     } else {
       alert("Failed to create item");
     }
-
   }
-
-  };
-
-
+};
 
 const delItemButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
@@ -99,4 +97,3 @@ document.querySelector(".collection-list").addEventListener("click", delButtonHa
 document.querySelector(".new-item-form").addEventListener("submit", newItemHandler);
 
 document.querySelector(".item-list").addEventListener("click", delItemButtonHandler);
-

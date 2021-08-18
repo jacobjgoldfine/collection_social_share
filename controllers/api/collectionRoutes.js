@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Collection } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // router.get("/", (req, res) => {
 //   Collection.findAll().then((collectionData) => {
@@ -7,14 +8,17 @@ const { Collection } = require("../../models");
 //   });
 // });
 
-router.post("/", (req, res) => {
-  Collection.create(req.body)
-    .then((newCollection) => {
-      res.json(newCollection);
-    })
-    .catch((err) => {
-      res.json(err);
+router.post("/", withAuth, async (req, res) => {
+  try {
+    const newCollection = await Collection.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
+
+    res.status(200).json(newCollection);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // router.put('/:id', (req, res) => {
@@ -43,6 +47,7 @@ router.delete("/:id", async (req, res) => {
     const collectionData = await Collection.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
     });
 
