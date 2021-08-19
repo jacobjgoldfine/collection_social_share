@@ -20,6 +20,7 @@ router.get("/", async (req, res) => {
     // Pass serialized data and session flag into template
     res.render("homepage", {
       collections,
+      style: 'homepage.css',
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -41,6 +42,7 @@ router.get("/collection/:id", async (req, res) => {
 
     res.render("collection", {
       ...collection,
+      style: 'collection.css',
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -56,6 +58,7 @@ router.get("/item/:id", async (req, res) => {
 
     res.render("item", {
       ...item,
+      style: 'item.css',
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -76,6 +79,7 @@ router.get("/profile", withAuth, async (req, res) => {
 
     res.render("profile", {
       ...user,
+      style: 'profile.css',
       loggedIn: true,
     });
   } catch (err) {
@@ -89,7 +93,10 @@ router.get("/login", (req, res) => {
     res.redirect("/profile");
     return;
   }
-  res.render("login");
+  res.render("login", {
+    style: 'login.css',
+  });
+    
 });
 
 module.exports = router;
