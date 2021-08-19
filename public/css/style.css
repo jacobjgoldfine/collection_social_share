@@ -165,3 +165,21 @@ span.psw {
 
   width: 50%;
 }
+
+#create-item {
+  margin: auto;
+  width: fit-content;
+}
+
+#btn-primary {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+
+}
+
+#item-table {
+  margin: auto;
+  margin-top: 0%;
+  width: 50%;
+}
