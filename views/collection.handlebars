@@ -11,7 +11,7 @@
       <tr>
         <td><a href="/item/{{item.id}}">{{item.item_name}}</a></td>
         <td>{{item.item_description}}.</td>
-        <td> <img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
+        <td> <img src="{{split_url item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
       </tr>
     {{/each}}
   </tbody>
