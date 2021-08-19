@@ -1,21 +1,25 @@
-{{#each users as |user|}}
-  {{#if loggedIn}}
-    <div class="title">
-      <h1>Welcome, {{user.name}}</h1>
-    </div>
-  {{/if}}
-{{/each}}
+{{#if loggedIn}}
+<div class="title">
+  <h1>Welcome!</h1>
+  <h2> Check out all of our user-created collections below!</h2>
+</div>
+{{else}}
+<div class="title">
+  <h1>Welcome!</h1>
+  <h2> Please sign in to add a collection to the site!</h2>
+</div>
+{{/if}}
 <div class="row">
   {{#each collections as |collection|}}
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">{{collection.user.username}}</div>
-        <div class="card-body">
-          <h5 class="card-title">{{collection.col_name}}</h5>
-          <p class="card-text">{{collection.col_description}}</p>
-          <a href="/collection/{{collection.id}}" class="btn btn-primary">View Collection</a>
-        </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">{{collection.user.username}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{collection.col_name}}</h5>
+        <p class="card-text">{{collection.col_description}}</p>
+        <a href="/collection/{{collection.id}}" class="btn btn-primary">View Collection</a>
       </div>
     </div>
+  </div>
   {{/each}}
 </div>

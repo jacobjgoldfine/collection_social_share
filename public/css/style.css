@@ -102,21 +102,36 @@ span.psw {
   border-color: #036440;
 }
 
+.Title {
+  background-color: rgb(75, 75, 75);
+  color: white;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 50%;
+  padding: 20px;
+  border-radius: 40px;
+  width: fit-content;
+
+}
+
 .card {
   text-align: center;
-  align-content: center;
 }
 
 .card-header {
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(40, 40, 40);
   color: white;
   font-weight: bolder;
   font-size: large;
+
 }
 
 .card-body {
   background-color: rgb(75, 75, 75);
   color: white;
+
 }
 
 .form-group {
