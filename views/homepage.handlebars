@@ -1,6 +1,13 @@
-{{#each collections as |collection|}}
+{{#each users as |user|}}
+{{#if loggedIn}}
+<div class="title">
+  <h1>Welcome, {{user.name}}</h1>
+</div>
+{{/if}}
+{{/each}}
 <div class="row">
-  <div class="col-sm-6">
+  {{#each collections as |collection|}}
+  <div class="col-md-6">
     <div class="card">
       <div class="card-header">{{collection.user.username}}</div>
       <div class="card-body">
@@ -10,5 +17,5 @@
       </div>
     </div>
   </div>
+  {{/each}}
 </div>
-{{/each}}
