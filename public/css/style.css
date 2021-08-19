@@ -75,9 +75,26 @@ span.psw {
   }
 }
 
+.btn-primary {
+  background-color: #04aa6d;
+  border-color: #04aa6d;
+}
+
 .card {
   text-align: center;
   align-content: center;
+}
+
+.card-header {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.card-body {
+  background-color: rgb(75, 75, 75);
+  color: white;
 }
 
 .form-group {
