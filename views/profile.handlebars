@@ -49,7 +49,7 @@
                   <td>{{item.item_description}}.</td>
                   <td><img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
                   {{! <button>Edit</button> }}
-                  <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>
+                  <td><button class="btn btn-sm btn-danger" item-data-id="{{item.id}}">DELETE</button></td>
                 </tr>
               {{/each}}
             </tbody>

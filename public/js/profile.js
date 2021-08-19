@@ -16,7 +16,6 @@ const newItemHandler = async (event) => {
   const item_name = document.querySelector("#item-name").value.trim();
   const item_description = document.querySelector("#item-desc").value.trim();
   const collection_id = document.querySelector("#col-id").value;
-  console.log(collection_id);
 
   if (item_name && item_description) {
     const response = await fetch(`/api/item`, {
@@ -36,13 +35,13 @@ const newItemHandler = async (event) => {
 };
 
 const delItemButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
+  if (event.target.hasAttribute("item-data-id")) {
+    const id = event.target.getAttribute("item-data-id");
 
     const response = await fetch(`/api/item/${id}`, {
       method: "DELETE",
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace("/profile");
     } else {
@@ -81,7 +80,7 @@ const delButtonHandler = async (event) => {
     const response = await fetch(`/api/collection/${id}`, {
       method: "DELETE",
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace("/profile");
     } else {
