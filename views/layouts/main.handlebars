@@ -1,17 +1,5 @@
 <html lang="en">
 
-<<<<<<< HEAD
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-       rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Collection Social Share</title>
-  </head>
-=======
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +9,6 @@
   <link rel="stylesheet" href="/css/style.css" />
   <title>Collection Social Share</title>
 </head>
->>>>>>> c33c339270c23929e5f9ae7c8789a94c041a10e6
 
 <body>
 
@@ -31,33 +18,25 @@
 
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Collection Social Share</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </button> --}}
+      <div>
+        <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0">
           {{#if loggedIn}}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
           </li>
 
-          <li>
-            <button class="logout class" id="logout">logout</button>
+          <li class="nav-item">
+            <a class="logout nav-link" id="logout">logout</a>
           </li>
           {{else}}
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login/Signup</a>
+            <a class="nav-link sucess" href="/login">Login/Signup</a>
           </li>
           {{/if}}
-          {{! <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul> }}
         </ul>
 
       </div>
