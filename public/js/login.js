@@ -14,10 +14,10 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+    setTimeout(function() { document.location.replace('/profile');}, 500);
+ 
     } else {
-      alert('Incorrect email or password. Please try again!')
-      console.log(response.body);
+      alert('Incorrect email or password. Please try again!');
     }
   }
 };
