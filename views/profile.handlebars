@@ -20,8 +20,8 @@
     {{else}}
   </div>
 
-  <div class="col-12 collection-list">
-    <h3>Current Collections:</h3>
+  <div class="container col-12 collection-list">
+    <h3>Current Collection:</h3>
 
     {{#each collections as |collection|}}
       <div class="row mb-2">
@@ -29,11 +29,12 @@
           <h4><a href="/collection/{{collection.id}}">{{collection.col_name}}</a></h4>
           <p>{{collection.col_description}}</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <button class="btn btn-sm btn-danger" data-id="{{collection.id}}">DELETE</button>
         </div>
       </div>
-      <div class="">
+      <div class="row">
+      <div class="col-6 justify-content-center">
         <table class="table">
           <thead>
             <tr>
@@ -56,7 +57,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-md-6 new-item-form">
+      <div class="col-6 align-items-right new-item-form">
         <h3>Create a New Item:</h3>
 
         <form class="form">
@@ -74,6 +75,7 @@
             <button type="submit" class="btn btn-success">Add Item</button>
           </div>
         </form>
+      </div>
       </div>
     {{/each}}
   </div>
