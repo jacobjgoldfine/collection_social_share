@@ -69,55 +69,37 @@ span.psw {
     display: block;
     float: none;
   }
+
   .cancelbtn {
     width: 100%;
   }
 }
 
+.btn-primary {
+  background-color: #04aa6d;
+  border-color: #04aa6d;
+}
+
+.btn-primary:hover {
+  background-color: #036440;
+  border-color: #036440;
+}
+
 .card {
   text-align: center;
-  padding-top: 16px;
-  width: auto;
-  margin: 24px 0 12px 0;
-  border: none;
-  width: 100%;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  align-content: center;
 }
 
-.card-title {
-  text-decoration: double;
-  width: 100%;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  /* background-color: yellow; */
+.card-header {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  font-weight: bolder;
+  font-size: large;
 }
 
-/* .row {
-  background-color: teal;
-} */
-
-.table {
-  text-decoration: double;
-  width: 100%;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background-color: white;
+.card-body {
+  background-color: rgb(75, 75, 75);
+  color: white;
 }
 
 .form-group {
