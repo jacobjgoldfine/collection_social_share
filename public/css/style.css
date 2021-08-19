@@ -69,6 +69,7 @@ span.psw {
     display: block;
     float: none;
   }
+
   .cancelbtn {
     width: 100%;
   }
@@ -76,51 +77,7 @@ span.psw {
 
 .card {
   text-align: center;
-  padding-top: 16px;
-  width: auto;
-  margin: 24px 0 12px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.card-title {
-  text-decoration: double;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background-color: yellow;
-}
-
-.row {
-  background-color: teal;
-}
-
-.table {
-  text-decoration: double;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background-color: white;
+  align-content: center;
 }
 
 .form-group {
