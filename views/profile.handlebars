@@ -1,65 +1,64 @@
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <h3>Create a New Collection:</h3>
+<div class="row mt-4">
+  <div class="col-md-6">
+    {{!-- {{#unless collections}} --}}
+    <h3>Create a New Collection:</h3>
 
-      <form class="form new-collection-form">
-        <div class="form-group">
-          <label for="col-name">Collection name:</label>
-          <input class="form-input" type="text" id="col-name" name="col-name" />
-        </div>
-        <div class="form-group">
-          <label for="col-desc">description:</label>
-          <textarea class="form-input" id="col-desc" name="col-desc"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Create</button>
-        </div>
-      </form>
-    </div>
+    <form class="form new-collection-form">
+      <div class="form-group">
+        <label for="col-name">Collection name:</label>
+        <input class="form-input" type="text" id="col-name" name="col-name" />
+      </div>
+      <div class="form-group">
+        <label for="col-desc">description:</label>
+        <textarea class="form-input" id="col-desc" name="col-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+    {{!-- {{/unless}} --}}
+  </div>
+  {{!-- {{#if collection.length}} --}}
+  <div class="col-md-6 collection-list">
+    <h3>Current Collections:</h3>
 
-    {{!-- {{#if collection.length}} --}}
-    <div class="col-md-6 collection-list">
-      <h3>Current Collections:</h3>
-
-
-      {{#each collections as |collection|}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4><a href="/collection/{{collection.id}}">{{collection.col_name}}</a></h4>
-            <p>{{collection.col_description}}</p>
-          </div>
-          <div class="col-md-4">
-            <button class="btn btn-sm btn-danger" data-id="{{collection.id}}">DELETE</button>
-          </div>
+    {{#each collections as |collection|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><a href="/collection/{{collection.id}}">{{collection.col_name}}</a></h4>
+          <p>{{collection.col_description}}</p>
         </div>
-        <div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Item Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Picture</th>
-                <th scope="col">Delete Item</th>
-              </tr>
-            </thead>
-            <tbody class="item-list">
-              {{#each items as |item|}}
-                <tr>
-                  <td>{{item.item_name}}</td>
-                  <td>{{item.item_description}}.</td>
-                  <td><img src="{{item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
-                  {{! <button>Edit</button> }}
-                  <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" data-id="{{collection.id}}">DELETE</button>
         </div>
       </div>
-      <div class="col-md-6">
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Item Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Picture</th>
+              <th scope="col">Delete Item</th>
+            </tr>
+          </thead>
+          <tbody class="item-list">
+            {{#each items as |item|}}
+              <tr>
+                <td>{{item.item_name}}</td>
+                <td>{{item.item_description}}.</td>
+                <td><img src="{{split_url item.item_image}}" class="img-thumbnail" alt="{{item.item_name}}" /></td>
+                {{! <button>Edit</button> }}
+                <td><button class="btn btn-sm btn-danger" item-data-id="{{item.id}}">DELETE</button></td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6 new-item-form">
         <h3>Create a New Item:</h3>
 
-        <form class="form new-item-form">
+        <form class="form">
           <div class="form-group">
             <label for="item-name">Item name:</label>
             <input class="form-input" type="text" id="item-name" name="item-name" />
@@ -68,15 +67,15 @@
             <label for="item-desc">description:</label>
             <textarea class="form-input" id="item-desc" name="item-desc"></textarea>
           </div>
-          <div id="wiget"></div>
+          <button class="wiget"></button>
           <input type="hidden" id="col-id" value="{{collection.id}}" />
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Add Item</button>
           </div>
         </form>
       </div>
-      {{/each}}
-    </div>
+    {{/each}}
+  </div>
 
   {{!-- {{/if}} --}}
 </div>
