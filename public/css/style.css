@@ -1,3 +1,20 @@
+@media (max-width: 767px) {
+  .navbar .navbar-right.navbar-top {
+    position: absolute;
+    margin-top: 4px;
+    right: 80px;
+  }
+
+  .navbar .navbar-right.navbar-top>li {
+    display: inline-block;
+  }
+
+  .navbar .navbar-right.navbar-top>li>a {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
 #loginBody {
   width: 100%;
   padding: 12px 20px;
