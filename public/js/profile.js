@@ -6,6 +6,7 @@ cloudinary.applyUploadWidget(
   (error, result) => {
     if (result.event === "success") {
       pictureData = result.info;
+      console.log(pictureData.tags[0]);
     }
   }
 );
@@ -17,7 +18,7 @@ const newItemHandler = async (event) => {
   const item_description = document.querySelector("#item-desc").value.trim();
   const collection_id = document.querySelector("#col-id").value;
 
-  if (item_name && item_description) {
+  if (item_name && item_description && pictureData.tags[0] === "Uploaded") {
     const response = await fetch(`/api/item`, {
       method: "POST",
       body: JSON.stringify({ item_name, item_description, collection_id, item_image: pictureData.secure_url }),
