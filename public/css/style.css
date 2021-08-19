@@ -151,3 +151,35 @@ span.psw {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* collection page css */
+#colview {
+  background-color: rgb(40, 40, 40);
+  width: fit-content;
+  padding: 2%;
+}
+
+#coltext {
+  color: white;
+  text-decoration: none;
+
+  width: 50%;
+}
+
+#create-item {
+  margin: auto;
+  width: fit-content;
+}
+
+#btn-primary {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+
+}
+
+#item-table {
+  margin: auto;
+  margin-top: 0%;
+  width: 50%;
+}
