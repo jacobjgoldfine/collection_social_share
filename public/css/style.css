@@ -80,6 +80,11 @@ span.psw {
   border-color: #04aa6d;
 }
 
+.btn-primary:hover {
+  background-color: #036440;
+  border-color: #036440;
+}
+
 .card {
   text-align: center;
   align-content: center;
