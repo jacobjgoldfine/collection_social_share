@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6 justify-content-center">
+      <div class="col-6 justify-content-center" id="item-table">
         <table class="table">
           <thead>
             <tr>
@@ -57,7 +57,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-6 align-items-right new-item-form">
+      <div class="col-6 align-items-right new-item-form" id="create-item">
         <h3>Create a New Item:</h3>
 
         <form class="form container">
@@ -70,9 +70,7 @@
             <input class="form-input" type="text" id="item-desc" name="item-desc"></input>
           </div>
           <div class="row">
-            <div class="col-5"></div>
-            <div class="col-4"> <button class="wiget"></button> </div>
-            <div class="col-4"></div>
+            <div class="col-4" id="btn-primary"> <button class="wiget"></button> </div>
           </div>
           <input type="hidden" id="col-id" value="{{collection.id}}" />
           <div class="form-group">
