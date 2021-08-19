@@ -151,3 +151,17 @@ span.psw {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* collection page css */
+#colview {
+  background-color: rgb(40, 40, 40);
+  width: fit-content;
+  padding: 2%;
+}
+
+#coltext {
+  color: white;
+  text-decoration: none;
+
+  width: 50%;
+}
