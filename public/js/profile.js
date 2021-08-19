@@ -1,8 +1,8 @@
 let pictureData = {};
 
 cloudinary.applyUploadWidget(
-  document.getElementById("wiget"),
-  { cloudName: "jgold", uploadPreset: "wbzmtfqf", sources: "local" },
+  document.querySelector(".wiget"),
+  { cloudName: "jgold", uploadPreset: "wbzmtfqf", sources: ["local"], multiple: false },
   (error, result) => {
     if (result.event === "success") {
       pictureData = result.info;
