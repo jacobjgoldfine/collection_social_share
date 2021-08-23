@@ -1,7 +1,7 @@
 <div class="d-flex row mt-4">
 
   <div class="col new-collection-form">
-    {{#unless collections}}
+    {{!-- {{#unless collections}} --}}
     <h3>Create a New Collection:</h3>
 
     <form class="form">
@@ -17,7 +17,7 @@
         <button type="submit" class="btn btn-success">Create</button>
       </div>
     </form>
-    {{else}}
+    {{!-- {{else}} --}}
   </div>
 
   <div class="container col-12 collection-list">
@@ -63,16 +63,16 @@
         <form class="form container">
           <div class="form-group">
             <label for="item-name">Item name:</label>
-            <input class="form-input" type="text" id="item-name" name="item-name" />
+            <input class="form-input item-name" type="text" id="item-name" name="item-name" />
           </div>
           <div class="form-group">
             <label for="item-desc">Description:</label>
-            <input class="form-input" type="text" id="item-desc" name="item-desc"></input>
+            <input class="form-input item-desc" type="text" id="item-desc" name="item-desc"></input>
           </div>
           <div class="row">
-            <div class="col-4" id="btn-primary"> <button class="wiget"></button> </div>
+            <div class="col-4 wiget" id="btn-primary"> </div>
           </div>
-          <input type="hidden" id="col-id" value="{{collection.id}}" />
+          <input type="hidden" id="col-id" class="col-id" value="{{collection.id}}" />
           <div class="form-group">
             <button type="submit" class="btn btn-success">Add Item</button>
           </div>
@@ -82,7 +82,7 @@
     {{/each}}
   </div>
 
-  {{/unless}}
+  {{!-- {{/unless}} --}}
 </div>
 
 <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>

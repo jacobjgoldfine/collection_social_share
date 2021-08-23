@@ -1,22 +1,26 @@
 let pictureData = {};
+const allWiget = document.querySelectorAll(".wiget");
 
-cloudinary.applyUploadWidget(
-  document.querySelector(".wiget"),
-  { cloudName: "jgold", uploadPreset: "wbzmtfqf", sources: ["local"], multiple: false },
-  (error, result) => {
-    if (result.event === "success") {
-      pictureData = result.info;
-      console.log(pictureData.tags[0]);
+allWiget.forEach((wiget) => {
+  cloudinary.applyUploadWidget(
+    wiget,
+    { cloudName: "jgold", uploadPreset: "wbzmtfqf", sources: ["local"], multiple: false },
+    (error, result) => {
+      if (result.event === "success") {
+        pictureData = result.info;
+        console.log(pictureData.tags[0]);
+      }
     }
-  }
-);
+  );
+});
 
 const newItemHandler = async (event) => {
   event.preventDefault();
 
-  const item_name = document.querySelector("#item-name").value.trim();
-  const item_description = document.querySelector("#item-desc").value.trim();
-  const collection_id = document.querySelector("#col-id").value;
+  console.log(event);
+  const item_name = event.srcElement[0].value.trim();
+  const item_description = event.srcElement[1].value.trim();
+  const collection_id = event.srcElement[2].value;
 
   if (item_name && item_description && pictureData.tags[0] === "Uploaded") {
     const response = await fetch(`/api/item`, {
@@ -94,6 +98,10 @@ document.querySelector(".new-collection-form").addEventListener("submit", newFor
 
 document.querySelector(".collection-list").addEventListener("click", delButtonHandler);
 
-document.querySelector(".new-item-form").addEventListener("submit", newItemHandler);
+const newItem = document.querySelectorAll(".new-item-form");
+
+newItem.forEach((eachItem) => {
+  eachItem.addEventListener("submit", newItemHandler);
+});
 
 document.querySelector(".item-list").addEventListener("click", delItemButtonHandler);
